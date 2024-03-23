@@ -4,25 +4,10 @@ Para a implementação desta parte do projeto, o seguinte arquivo foi alterado:
 
 - `App.java`: Arquivo principal que inicia a aplicação.
 
-
-
-
-## Análise e Conclusões
-
-### O que são elementos estáticos e qual o motivo para o método main adotar esse modificador?
-
-Os elementos estáticos pertencem à classe e não a uma instância específica da classe. É por isso que ele pode ser acessado sem a necessidade de criar uma instância, por isso o método `main` é `static`.
-
-### Para que serve a classe Scanner?
-
-A classe `Scanner` serve para ler dados, independente da fonte (entrada do usuário, arquivos, strings).
-
-### Como o uso de classes de repositório impactou na organização do código?
-
-Isola a lógica de acesso aos dados da lógica de construção deles. Permite facilitar testes, testando de forma independente.
-
-
 ## Execuções
+<details closed>
+<summary>Todas as Funcionalidades</summary>
+
 ```
 @JoaoFernandesz ➜ /workspaces/Missao-Pratica-Nivel1-Mundo3---Desenvolvimento-FullStack/Segundo-Procedimento/CadastroPOO (main) $  /usr/bin/env /usr/local/sdkman/candidates/java/21.0.2-ms/bin/java --enable-preview -XX:+ShowCodeDetailsInExceptionMessages -cp /workspaces/Missao-Pratica-Nivel1-Mundo3---Desenvolvimento-FullStack/Segundo-Procedimento/CadastroPOO/bin App 
     ==================================
@@ -222,3 +207,21 @@ Isola a lógica de acesso aos dados da lógica de construção deles. Permite fa
     Finalizando programa...
     @JoaoFernandesz ➜ /workspaces/Missao-Pratica-Nivel1-Mundo3---Desenvolvimento-FullStack/Segundo-Procedimento/CadastroPOO (main) $ 
 ```
+</details>
+
+
+## Análise e Conclusões
+
+### O que são elementos estáticos e qual o motivo para o método main adotar esse modificador?
+
+Os elementos estáticos pertencem à classe e não a uma instância específica da classe. É por isso que ele pode ser acessado sem a necessidade de criar uma instância, por isso o método `main` é `static`.
+
+### Para que serve a classe Scanner?
+
+A classe `Scanner` serve para ler dados, independente da fonte (entrada do usuário, arquivos, strings).
+
+### Como o uso de classes de repositório impactou na organização do código?
+
+Isola a lógica de acesso aos dados da lógica de construção deles. Permite facilitar testes, testando de forma independente.
+
+
