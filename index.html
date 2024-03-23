@@ -1,0 +1,1584 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Desenvolvimento FullStack - Missão Prática Nivel1 Mundo3 - João Victor Macedo Fernandes Ramos</title><style>
+    /* cspell:disable-file */
+    /* webkit printing magic: print all background colors */
+    html {
+        -webkit-print-color-adjust: exact;
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    @media only screen {
+        body {
+            margin: 2em auto;
+            max-width: 900px;
+            color: rgb(55, 53, 47);
+        }
+    }
+    
+    body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+    }
+    
+    a,
+    a.visited {
+        color: inherit;
+        text-decoration: underline;
+    }
+    
+    .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+    }
+    
+    .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+    }
+    
+    .callout {
+        border-radius: 3px;
+        padding: 1rem;
+    }
+    
+    figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+    }
+    
+    figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+    }
+    
+    mark {
+        background-color: transparent;
+    }
+    
+    .indented {
+        padding-left: 1.5em;
+    }
+    
+    hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    @media only print {
+        img {
+            max-height: 100vh;
+            object-fit: contain;
+        }
+    }
+    
+    @page {
+        margin: 1in;
+    }
+    
+    .collection-content {
+        font-size: 0.875rem;
+    }
+    
+    .column-list {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .column {
+        padding: 0 1em;
+    }
+    
+    .column:first-child {
+        padding-left: 0;
+    }
+    
+    .column:last-child {
+        padding-right: 0;
+    }
+    
+    .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+    }
+    
+    .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+    }
+    
+    .table_of_contents-indent-2 {
+        margin-left: 3rem;
+    }
+    
+    .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+    }
+    
+    .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+    }
+    
+    table {
+        border-left: none;
+        border-right: none;
+    }
+    
+    th,
+    td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+    }
+    
+    th {
+        color: rgba(55, 53, 47, 0.6);
+    }
+    
+    ol,
+    ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+    }
+    
+    li > ol:first-child,
+    li > ul:first-child {
+        margin-block-start: 0.6em;
+    }
+    
+    ul > li {
+        list-style: disc;
+    }
+    
+    ul.to-do-list {
+        padding-inline-start: 0;
+    }
+    
+    ul.to-do-list > li {
+        list-style: none;
+    }
+    
+    .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+    }
+    
+    ul.toggle > li {
+        list-style: none;
+    }
+    
+    ul {
+        padding-inline-start: 1.7em;
+    }
+    
+    ul > li {
+        padding-left: 0.1em;
+    }
+    
+    ol {
+        padding-inline-start: 1.6em;
+    }
+    
+    ol > li {
+        padding-left: 0.2em;
+    }
+    
+    .mono ol {
+        padding-inline-start: 2em;
+    }
+    
+    .mono ol > li {
+        text-indent: -0.4em;
+    }
+    
+    .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+    }
+    
+    /* Indent toggle children */
+    .toggle > li > details {
+        padding-left: 1.7em;
+    }
+    
+    .toggle > li > details > summary {
+        margin-left: -1.1em;
+    }
+    
+    .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+    }
+    
+    .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+    }
+    
+    .page-description {
+        margin-bottom: 2em;
+    }
+    
+    .simple-table {
+        margin-top: 1em;
+        font-size: 0.875rem;
+        empty-cells: show;
+    }
+    .simple-table td {
+        height: 29px;
+        min-width: 120px;
+    }
+    
+    .simple-table th {
+        height: 29px;
+        min-width: 120px;
+    }
+    
+    .simple-table-header-color {
+        background: rgb(247, 246, 243);
+        color: black;
+    }
+    .simple-table-header {
+        font-weight: 500;
+    }
+    
+    time {
+        opacity: 0.5;
+    }
+    
+    .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+    }
+    
+    img.icon {
+        border-radius: 3px;
+    }
+    
+    .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+    }
+    
+    .user-icon-inner {
+        font-size: 0.8em;
+    }
+    
+    .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+    }
+    
+    .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        max-height: 30vh;
+    }
+    
+    .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+    }
+    
+    .page-header-icon img {
+        border-radius: 3px;
+    }
+    
+    .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+    }
+    
+    p > .user {
+        opacity: 0.5;
+    }
+    
+    td > .user,
+    td > time {
+        white-space: nowrap;
+    }
+    
+    input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+    }
+    
+    p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+    }
+    
+    .code,
+    code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+    }
+    
+    code {
+        color: #eb5757;
+    }
+    
+    .code {
+        padding: 1.5em 1em;
+    }
+    
+    .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+    
+    .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+    }
+    
+    blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+    }
+    
+    .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+    }
+    
+    .bookmark-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+    }
+    
+    .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+    }
+    
+    .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+    }
+    
+    .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+    .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+    .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+    .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+    .pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+    .pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+    .pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+    .pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+    .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+    .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+    .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+    .pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+    .pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+    .pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+    .pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+    .pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+    .pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+    .pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+    .pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+    .pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+    .highlight-default {
+        color: rgba(55, 53, 47, 1);
+    }
+    .highlight-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+    }
+    .highlight-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+    }
+    .highlight-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+    }
+    .highlight-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+    }
+    .highlight-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+    }
+    .highlight-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+    }
+    .highlight-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+    }
+    .highlight-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+    }
+    .highlight-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+    }
+    .highlight-gray_background {
+        background: rgba(241, 241, 239, 1);
+    }
+    .highlight-brown_background {
+        background: rgba(244, 238, 238, 1);
+    }
+    .highlight-orange_background {
+        background: rgba(251, 236, 221, 1);
+    }
+    .highlight-yellow_background {
+        background: rgba(251, 243, 219, 1);
+    }
+    .highlight-teal_background {
+        background: rgba(237, 243, 236, 1);
+    }
+    .highlight-blue_background {
+        background: rgba(231, 243, 248, 1);
+    }
+    .highlight-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+    }
+    .highlight-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+    }
+    .highlight-red_background {
+        background: rgba(253, 235, 236, 1);
+    }
+    .block-color-default {
+        color: inherit;
+        fill: inherit;
+    }
+    .block-color-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+    }
+    .block-color-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+    }
+    .block-color-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+    }
+    .block-color-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+    }
+    .block-color-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+    }
+    .block-color-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+    }
+    .block-color-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+    }
+    .block-color-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+    }
+    .block-color-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+    }
+    .block-color-gray_background {
+        background: rgba(241, 241, 239, 1);
+    }
+    .block-color-brown_background {
+        background: rgba(244, 238, 238, 1);
+    }
+    .block-color-orange_background {
+        background: rgba(251, 236, 221, 1);
+    }
+    .block-color-yellow_background {
+        background: rgba(251, 243, 219, 1);
+    }
+    .block-color-teal_background {
+        background: rgba(237, 243, 236, 1);
+    }
+    .block-color-blue_background {
+        background: rgba(231, 243, 248, 1);
+    }
+    .block-color-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+    }
+    .block-color-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+    }
+    .block-color-red_background {
+        background: rgba(253, 235, 236, 1);
+    }
+    .select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+    .select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+    .select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+    .select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+    .select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+    .select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+    .select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+    .select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+    .select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+    .select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+    .select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+    .select-value-color-pageGlass { background-color: undefined; }
+    .select-value-color-washGlass { background-color: undefined; }
+    
+    .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+    }
+    
+    .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+    
+    .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+        
+    </style></head><body><article id="30c7e012-ab15-492c-95db-a86611fdf034" class="page sans"><header><h1 class="page-title">Desenvolvimento FullStack <br> Missão Prática Nivel1 Mundo3 <br> João Victor Macedo Fernandes Ramos</h1><p class="page-description"></p></header><div class="page-body"><figure id="ec0079a3-f787-4883-8384-680a3c5d31a0" class="image"><a href="img/logo_estacio.svg"><img style="width:231.98863220214844px" src="img/logo_estacio.svg"/></a></figure><h2 id="618dcf34-1e93-40be-8495-000d26967cc4" class="">Informações</h2><h3 id="31357a6d-ffea-41b5-9433-efcd2d1e82d2" class=""><strong>Curso</strong></h3><ul id="030b3342-ad75-44a3-afde-5401f00941f3" class="bulleted-list"><li style="list-style-type:disc"><strong>Curso:</strong> Estácio Desenvolvimento Full Stack</li></ul><ul id="d80f534d-0864-4c63-9ca8-f6e5dae5c7e5" class="bulleted-list"><li style="list-style-type:disc"><strong>Universidade:</strong> Estácio de Sá - Campus Downtown</li></ul><ul id="f3f57f15-cf96-4001-8a65-fc3618f97837" class="bulleted-list"><li style="list-style-type:disc"><strong>Período:</strong> 3º</li></ul><ul id="878f6d82-5a35-4550-8208-d61c46a30897" class="bulleted-list"><li style="list-style-type:disc"><strong>Turma:</strong> 9001</li></ul><ul id="6e6202d5-315b-4f2f-9310-2ad0f8eea9b7" class="bulleted-list"><li style="list-style-type:disc"><strong>Tutora:</strong> Maria Manso</li></ul><ul id="405e6cc1-68c9-40ca-9228-6fc4476b955f" class="bulleted-list"><li style="list-style-type:disc"><strong>Matéria:</strong> <mark class="highlight-default">Iniciando o caminho pelo Java</mark></li></ul><h3 id="8b6adad3-e935-4a6c-9b4d-6d15a971477c" class=""><strong>Aluno</strong></h3><ul id="c0c46d6b-023f-4afa-a785-ef43c5f7d0d7" class="bulleted-list"><li style="list-style-type:disc"><strong>Nome:</strong> João Victor Macedo Fernandes Ramos</li></ul><ul id="081f9e51-0c76-48a2-a709-ba3fe6bc2434" class="bulleted-list"><li style="list-style-type:disc"><strong>Matricula:</strong> 202208845011 </li></ul><h3 id="89f9d17e-60b2-4f06-ac0c-4c13694a6ea3" class=""><strong>Projeto</strong></h3><ul id="446b77f6-36e2-46b5-b95a-51564f80a2d7" class="bulleted-list"><li style="list-style-type:disc"><strong>Data:</strong> 23/03/2024</li></ul><ul id="f9cdfbe0-14af-4229-8a38-34d6d94adc84" class="bulleted-list"><li style="list-style-type:disc"><strong>GitHub:</strong> <a target="_blank" href="https://github.com/JoaoFernandesz/Missao-Pratica-Nivel1-Mundo3---Desenvolvimento-FullStack">github.com/JoaoFernandesz/Missao-Pratica-Nivel1-Mundo3---Desenvolvimento-FullStack</a></li></ul><ul id="f9cdfbe0-14af-4229-8a38-34d6d94adc84" class="bulleted-list"><li style="list-style-type:disc"><strong>PDF:</strong> <a target="_blank" href="https://drive.usercontent.google.com/uc?id=1H9DR4oTRe2Xl24ojWs53018LM0LRi3Xf&export=download">Download PDF</a></li></ul><ul id="f9cdfbe0-14af-4229-8a38-34d6d94adc84" class="bulleted-list"><li style="list-style-type:disc"><strong>Material de Apoio:</strong> <a target="_blank" href="https://sway.cloud.microsoft/s/9HQUpWu7S6bzXsqt/embed">Missão Prática | Nível 1 | Mundo 3</a></li></ul><p id="ff93c41c-bb48-4a5b-a9a5-80d5659c444f" class="">
+    </p><h2 id="de710acc-5be9-4b8c-ac06-b573497cb55c" class="">Projeto</h2><h3 id="64903895-90b0-45e0-9214-224c65842027" class=""><strong>Cadastro de Clientes em Java</strong></h3><p id="39fdcad4-9d8b-4ac5-bbd8-35ccf79d80d3" class="">Implementação de um cadastro de clientes em modo texto, com persistência em<br/>arquivos, baseado na tecnologia Java.<br/></p><ul id="fe44cbcd-4aeb-4859-8354-cdaa567584aa" class="bulleted-list"><li style="list-style-type:disc">Utilizar herança e polimorfismo na definição de entidades.</li></ul><ul id="847378fc-2351-41fd-90ce-d398439912dc" class="bulleted-list"><li style="list-style-type:disc">Utilizar persistência de objetos em arquivos binários.Implementar uma interface cadastral em modo texto.</li></ul><ul id="3cbc0a2a-f3ad-4ae9-a866-de6fa2c62990" class="bulleted-list"><li style="list-style-type:disc">Utilizar o controle de exceções da plataforma Java.</li></ul><ul id="da588f92-f599-4f23-bd34-3deb460e5ab0" class="bulleted-list"><li style="list-style-type:disc">Implementar um sistema cadastral em Java, utilizando os recursos da programação orientada a objetos e a persistência em arquivos binários.</li></ul><p id="7eae78d6-00b3-4022-9806-b6c9128f36d6" class="">
+    </p><h2 id="ccbe4c58-162e-45cd-bd52-391f6780d745" class="">Aplicações</h2><ul id="aa93efd4-797e-481b-9f2b-93259bb0dda9" class="toggle"><li><details><summary><strong>Procedimento 1</strong> - Criação das Entidades e Sistema de Persistência</summary><h2 id="520b533e-d402-4c6f-ba6a-a53c9fe4715d" class="">Estrutura de arquivos</h2><p id="87ce9e6a-507f-4bef-82a3-18f2ec16e819" class="">CadastroPOO/<br/>├── bin/<br/>├── lib/<br/>└── src/<br/>         ├── App.java<br/>         └── model/<br/>                   ├── Pessoa.java<br/>                   ├── PessoaFisica.java    <br/>                   ├── PessoaJuridica.Java<br/>                   ├── PessoaFisicaRepo.java<br/>                   └── PessoaJuridicaRepo.java<br/></p><h2 id="14fc247b-9b35-4683-b265-41ba3944d09f" class="">Códigos</h2><ul id="7bd6e14b-0ed2-4616-9bee-9a1036384ecf" class="toggle"><li><details><summary>App.java</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="456ba682-61a7-4f64-aff5-fd80fed15815" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">
+    import model.PessoaFisica;
+    import model.PessoaFisicaRepo;
+    import model.PessoaJuridica;
+    import model.PessoaJuridicaRepo;
+    
+    public class App {
+        public static void main(String[] args) {
+            try {
+                PessoaFisicaRepo repo1 = new PessoaFisicaRepo();
+                repo1.inserir(new PessoaFisica(1, &quot;Ana&quot;, &quot;11111111111&quot;, 25));
+                repo1.inserir(new PessoaFisica(2, &quot;Carlos&quot;, &quot;22222222222&quot;, 52));
+                repo1.persistir(&quot;pessoasFisicas.dat&quot;);
+                System.out.println(&quot;Dados de Pessoa Fisica Armazenados.&quot;);
+    
+                PessoaFisicaRepo repo2 = new PessoaFisicaRepo();
+                repo2.recuperar(&quot;pessoasFisicas.dat&quot;);
+                System.out.println(&quot;Dados de Pessoa Fisica Recuperados.&quot;);
+                for (PessoaFisica pf : repo2.obterTodos()) {
+                    pf.exibir();
+                }
+    
+                PessoaJuridicaRepo repo3 = new PessoaJuridicaRepo();
+                repo3.inserir(new PessoaJuridica(3, &quot;XPTO Sales&quot;, &quot;33333333333333&quot;));
+                repo3.inserir(new PessoaJuridica(4, &quot;XPTO Solutions&quot;, &quot;44444444444444&quot;));
+                repo3.persistir(&quot;pessoasJuridicas.dat&quot;);
+                System.out.println(&quot;Dados de Pessoa Juridica Armazenados.&quot;);
+    
+                PessoaJuridicaRepo repo4 = new PessoaJuridicaRepo();
+                repo4.recuperar(&quot;pessoasJuridicas.dat&quot;);
+                System.out.println(&quot;Dados de Pessoa Juridica Recuperados.&quot;);
+                for (PessoaJuridica pj : repo4.obterTodos()) {
+                    pj.exibir();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    </code></pre></details></li></ul><ul id="0a330c62-795e-46b1-9672-cf92c10a154a" class="toggle"><li><details><summary>Pessoa.java</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="39834f76-47e8-4399-8848-b378f842b637" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package model;
+    
+    import java.io.Serializable;
+    
+    public class Pessoa implements Serializable {
+        private int id;
+        private String nome;
+    
+        public Pessoa() {
+        }
+    
+        public Pessoa(int id, String nome) {
+            this.id = id;
+            this.nome = nome;
+        }
+    
+        public void exibir() {
+            System.out.println(&quot;ID: &quot; + id + &quot;, Nome: &quot; + nome);
+        }
+    
+        public int getId() {
+            return id;
+        }
+    
+        public void setId(int id) {
+            this.id = id;
+        }
+    
+        public String getNome() {
+            return nome;
+        }
+    
+        public void setNome(String nome) {
+            this.nome = nome;
+        }
+    }
+    </code></pre></details></li></ul><ul id="2eb98905-d0d8-409f-99d0-61b6d891f3b3" class="toggle"><li><details><summary>PessoaFisica.java</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b428822d-00a4-4b81-ad30-5a294cd0c8e6" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package model;
+    
+    public class PessoaFisica extends Pessoa {
+        private String cpf;
+        private int idade;
+    
+        public PessoaFisica() {
+        }
+    
+        public PessoaFisica(int id, String nome, String cpf, int idade) {
+            super(id, nome);
+            this.cpf = cpf;
+            this.idade = idade;
+        }
+    
+        @Override
+        public void exibir() {
+            super.exibir();
+            System.out.println(&quot;CPF: &quot; + cpf + &quot;, Idade: &quot; + idade);
+        }
+    
+        public String getCpf() {
+            return cpf;
+        }
+    
+        public void setCpf(String cpf) {
+            this.cpf = cpf;
+        }
+    
+        public int getIdade() {
+            return idade;
+        }
+    
+        public void setIdade(int idade) {
+            this.idade = idade;
+        }
+    }
+    </code></pre></details></li></ul><ul id="a2b33a78-ffe7-4460-8b9f-69efe76dfc3f" class="toggle"><li><details><summary>PessoaJuridica.Java</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2a197afb-277b-4f06-9ee8-a9385a67b23a" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package model;
+    
+    public class PessoaJuridica extends Pessoa {
+        private String cnpj;
+    
+        public PessoaJuridica() {
+        }
+    
+        public PessoaJuridica(int id, String nome, String cnpj) {
+            super(id, nome);
+            this.cnpj = cnpj;
+        }
+    
+        @Override
+        public void exibir() {
+            super.exibir();
+            System.out.println(&quot;CNPJ: &quot; + cnpj);
+        }
+    
+        public String getCnpj() {
+            return cnpj;
+        }
+    
+        public void setCnpj(String cnpj) {
+            this.cnpj = cnpj;
+        }
+    }
+    </code></pre></details></li></ul><ul id="2ee4931b-de38-4fd7-b550-cfb77f1198aa" class="toggle"><li><details><summary>PessoaFisicaRepo.java</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="81e6843b-a44b-4003-9a15-8f6aac8edaee" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package model;
+    
+    import java.util.ArrayList;
+    import java.io.*;
+    import java.util.List;
+    
+    public class PessoaFisicaRepo {
+        private ArrayList&lt;PessoaFisica&gt; pessoasFisicas = new ArrayList&lt;&gt;();
+    
+        public void inserir(PessoaFisica pessoaFisica) {
+            pessoasFisicas.add(pessoaFisica);
+        }
+    
+        public void alterar(PessoaFisica pessoaFisica) {
+            for (int i = 0; i &lt; pessoasFisicas.size(); i++) {
+                if (pessoasFisicas.get(i).getId() == pessoaFisica.getId()) {
+                    pessoasFisicas.set(i, pessoaFisica);
+                    return;
+                }
+            }
+        }
+    
+        public void excluir(int id) {
+            pessoasFisicas.removeIf(p -&gt; p.getId() == id);
+        }
+    
+        public PessoaFisica obter(int id) {
+            return pessoasFisicas.stream()
+                    .filter(p -&gt; p.getId() == id)
+                    .findFirst()
+                    .orElse(null);
+        }
+    
+        public List&lt;PessoaFisica&gt; obterTodos() {
+            return new ArrayList&lt;&gt;(pessoasFisicas);
+        }
+    
+        public void persistir(String nomeArquivo) throws IOException {
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
+                out.writeObject(pessoasFisicas);
+            }
+        }
+    
+        public void recuperar(String nomeArquivo) throws IOException, ClassNotFoundException {
+            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
+                pessoasFisicas = (ArrayList&lt;PessoaFisica&gt;) in.readObject();
+            }
+        }
+    }
+    </code></pre></details></li></ul><ul id="c36f7662-dd05-404d-b420-e0bfb56add8d" class="toggle"><li><details><summary>PessoaJuridicaRepo.java</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="df391979-d002-4cf2-a259-986e06277a28" class="code"><code class="language-Java">package model;
+    
+    import java.util.ArrayList;
+    import java.io.*;
+    import java.util.List;
+    
+    public class PessoaFisicaRepo {
+        private ArrayList&lt;PessoaFisica&gt; pessoasFisicas = new ArrayList&lt;&gt;();
+    
+        public void inserir(PessoaFisica pessoaFisica) {
+            pessoasFisicas.add(pessoaFisica);
+        }
+    
+        public void alterar(PessoaFisica pessoaFisica) {
+            for (int i = 0; i &lt; pessoasFisicas.size(); i++) {
+                if (pessoasFisicas.get(i).getId() == pessoaFisica.getId()) {
+                    pessoasFisicas.set(i, pessoaFisica);
+                    return;
+                }
+            }
+        }
+    
+        public void excluir(int id) {
+            pessoasFisicas.removeIf(p -&gt; p.getId() == id);
+        }
+    
+        public PessoaFisica obter(int id) {
+            return pessoasFisicas.stream()
+                    .filter(p -&gt; p.getId() == id)
+                    .findFirst()
+                    .orElse(null);
+        }
+    
+        public List&lt;PessoaFisica&gt; obterTodos() {
+            return new ArrayList&lt;&gt;(pessoasFisicas);
+        }
+    
+        public void persistir(String nomeArquivo) throws IOException {
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
+                out.writeObject(pessoasFisicas);
+            }
+        }
+    
+        public void recuperar(String nomeArquivo) throws IOException, ClassNotFoundException {
+            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
+                pessoasFisicas = (ArrayList&lt;PessoaFisica&gt;) in.readObject();
+            }
+        }
+    }
+    </code></pre></details></li></ul><h2 id="d112f232-8e82-4de4-a0c0-6d4f608e389d" class="">Execuções</h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e714b793-3e5c-4a2e-80e2-5498e9e96905" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">@JoaoFernandesz ➜ /workspaces/Missao-Pratica-Nivel1-Mundo3---Desenvolvimento-FullStack/Primeiro-Procedimento/CadastroPOO (main) $  cd /workspaces/Missao-Pratica-Nivel1-Mundo3---Desenvolvimento-FullStack/Primeiro-Procedimento/CadastroPOO ; /usr/bin/env /usr/local/sdkman/candidates/java/21.0.2-ms/bin/java --enable-preview -XX:+ShowCodeDetailsInExceptionMessages -cp /workspaces/Missao-Pratica-Nivel1-Mundo3---Desenvolvimento-FullStack/Primeiro-Procedimento/CadastroPOO/bin App 
+    Dados de Pessoa Fisica Armazenados.
+    Dados de Pessoa Fisica Recuperados.
+    ID: 1, Nome: Ana
+    CPF: 11111111111, Idade: 25
+    ID: 2, Nome: Carlos
+    CPF: 22222222222, Idade: 52
+    Dados de Pessoa Juridica Armazenados.
+    Dados de Pessoa Juridica Recuperados.
+    ID: 3, Nome: XPTO Sales
+    CNPJ: 33333333333333
+    ID: 4, Nome: XPTO Solutions
+    CNPJ: 44444444444444</code></pre><h2 id="a7b12df4-92f3-4b2b-bd42-423316c02763" class="">Análise e Conclusões</h2><h3 id="faa9d842-9832-4456-a585-ff4c2870ad15" class="">Quais as vantagens e desvantagens do uso de herança?</h3><ul id="b11bc716-c7dd-4d45-a089-aa3210519a4c" class="bulleted-list"><li style="list-style-type:disc">Vantagens:<ul id="48e54321-501c-4a6a-8366-1bbb49eab76d" class="bulleted-list"><li style="list-style-type:circle">Permite reutilizar código fazendo o reaproveitamento de métodos e variáveis em diversos contextos, reduzindo a duplicação do códgo</li></ul><ul id="607853e0-5962-402e-ab8e-07772d74891e" class="bulleted-list"><li style="list-style-type:circle">Facilita a organização e manutenção do código</li></ul><ul id="4deb24dd-9e8d-4290-b423-eeedbff54fee" class="bulleted-list"><li style="list-style-type:circle">Permite que objetos de classes diferentes sejam tratados como o mesmo objetivo de uma superclasse, o que facilita a trabalhar com varios tipos de objetos ao mesmo tempo </li></ul></li></ul><ul id="ecae0d91-513f-4070-933d-dbf210806ea6" class="bulleted-list"><li style="list-style-type:disc">Desvantagens<ul id="30cf04a6-0cf0-4b7a-9e0e-140333a53053" class="bulleted-list"><li style="list-style-type:circle">Java não suporta herança multipla, o que limita o uso de uma unica superclasse por subclasse</li></ul><ul id="283aa47f-dbcf-42c2-8af3-f8d47ac1b8a5" class="bulleted-list"><li style="list-style-type:circle">Em Sistemas mais complexos é dificil de modificar a estrutura</li></ul></li></ul><h3 id="684250b2-32b0-40ea-8c74-5aba76699ce7" class="">Por que a interface Serializable é necessária ao efetuar persistência em arquivos binários?</h3><p id="bd89e25a-c4a3-4e85-b64f-5df869b45820" class="">A serialização é uma forma de avisar a JVM que aquela informações podem ser salvam em binário e assim convertendo o estado do objeto em um fluxo de bytes, que podem ser armazenados em um arquivo. <br/>Essa prática é ideal por aumentar a performance de transferencia de dados e definir um padrao de persistencia que pode ser lidos por diferentes plataformas, versões e arquiteturas. <br/>E todo arquivo serializado pode ser deserializado para leitura dinamica das informações<br/></p><h3 id="c13d87c2-6b2c-4398-b4a9-9ddcb6ba7075" class="">Como o paradigma funcional é utilizado pela API stream no Java?</h3><p id="fe816ef4-b72d-45c3-814c-d47f516ee933" class="">Essa fuga do paradigma do POO em Java na API Stream é utilizado para declarar de forma mais pratica toda manipulação de dados sequencial, como filter, reduce, map. Permitindo uma performance maior, sem complexidade e sem modificar os dados dos objetos originais, agindo em paralelo ao funcionamento padrão do programa. <br/>No entanto ela ainda opera sobre objetos e classes, processando os dados de maneira funcional dentro da orientação por objetos de Java.<br/></p><h3 id="380065a0-f3cf-45db-acc6-e4c2dc3e8d4d" class="">Quando trabalhamos com Java, qual padrão de desenvolvimento é adotado na persistência de dados em arquivos?</h3><p id="8f1095a3-d548-463f-8f78-8c8b18b73579" class="">A persistencia de dados em arquivos no desenvolvimento com Java é o DAO. Que separa a lógica de acesso aos dados da lógica de negócios da aplicação.</p><p id="60ec352d-71ac-4d3e-bd02-befcee307531" class="">
+    </p></details></li></ul><ul id="ad8f21f2-8813-48f5-87b1-ee264fef5cb7" class="toggle"><li><details><summary><strong>Procedimento 2</strong> - Criação do Cadastro em Modo Texto</summary><h2 id="da66815c-14f9-4b9d-8a7e-c577269d55d7" class="">Estrutura de arquivos</h2><p id="29165670-e3b9-4b1e-89a4-e4271aa39132" class="">CadastroPOO/<br/>├── bin/<br/>├── lib/<br/>└── src/<br/>         ├── App.java<br/>         └── model/<br/>                   ├── Pessoa.java<br/>                   ├── PessoaFisica.java    <br/>                   ├── PessoaJuridica.Java<br/>                   ├── PessoaFisicaRepo.java<br/>                   └── PessoaJuridicaRepo.java<br/></p><h2 id="d365880f-106e-4d44-8541-a856ef3b9791" class="">Códigos</h2><ul id="1a796f3e-f206-4df0-9bad-5b485ecd4d72" class="toggle"><li><details><summary>App.java</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="71f1a1fb-b593-48ce-8b39-7afcbcf0ae12" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">
+    import model.PessoaFisica;
+    import model.PessoaFisicaRepo;
+    import model.PessoaJuridica;
+    import model.PessoaJuridicaRepo;
+    
+    import java.io.IOException;
+    import java.util.Scanner;
+    
+    public class App {
+        private static PessoaFisicaRepo repoFisica = new PessoaFisicaRepo();
+        private static PessoaJuridicaRepo repoJuridica = new PessoaJuridicaRepo();
+        private static Scanner scanner = new Scanner(System.in);
+    
+        public static void main(String[] args) {
+            int opcao;
+    
+            do {
+                System.out.println(&quot;==================================&quot;);
+                System.out.println(&quot;1 - Incluir Pessoa&quot;);
+                System.out.println(&quot;2 - Alterar Pessoa&quot;);
+                System.out.println(&quot;3 - Excluir Pessoa&quot;);
+                System.out.println(&quot;4 - Buscar pelo Id&quot;);
+                System.out.println(&quot;5 - Exibir Todos&quot;);
+                System.out.println(&quot;6 - Persistir Dados&quot;);
+                System.out.println(&quot;7 - Recuperar Dados&quot;);
+                System.out.println(&quot;0 - Finalizar Programa&quot;);
+                System.out.println(&quot;==================================&quot;);
+                System.out.print(&quot;Escolha uma opção: &quot;);
+                opcao = scanner.nextInt();
+                scanner.nextLine(); 
+    
+                switch (opcao) {
+                    case 1:
+                        incluirPessoa();
+                        break;
+                    case 2:
+                        alterarPessoa();
+                        break;
+                    case 3:
+                        excluirPessoa();
+                        break;
+                    case 4:
+                        buscarPeloId();
+                        break;
+                    case 5:
+                        exibirTodos();
+                        break;
+                    case 6:
+                        persistirDados();
+                        break;
+                    case 7:
+                        recuperarDados();
+                        break;
+                    case 0:
+                        System.out.println(&quot;Finalizando programa...&quot;);
+                        break;
+                    default:
+                        System.out.println(&quot;Opção inválida. Tente novamente.&quot;);
+                }
+            } while (opcao != 0);
+    
+            scanner.close();
+        }
+    
+        private static void excluirPessoa() {...}
+    
+        private static void buscarPeloId() {...}
+    
+        private static void exibirTodos() {...}
+    
+        private static void persistirDados() {...}
+    
+        private static void recuperarDados() {...}
+    
+        private static void incluirPessoa() {...}   
+    
+        private static void alterarPessoa() {...}
+    
+    }
+    </code></pre><ul id="6a35d823-7b1a-48af-bf5b-c6bbb6922247" class="toggle"><li><details><summary>excluirPessoa()</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="28edf197-c7b3-4d64-96a1-85a7de747959" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">private static void excluirPessoa() {
+            System.out.println(&quot;Excluir Pessoa: [F] - Física | [J] - Jurídica&quot;);
+            String tipo = scanner.nextLine().toUpperCase();
+            System.out.print(&quot;Digite o id da pessoa: &quot;);
+            int id = scanner.nextInt();
+            scanner.nextLine();
+    
+            if (tipo.equals(&quot;F&quot;)) {
+                repoFisica.excluir(id);
+                System.out.println(&quot;Pessoa Física excluída.&quot;);
+            } else if (tipo.equals(&quot;J&quot;)) {
+                repoJuridica.excluir(id);
+                System.out.println(&quot;Pessoa Jurídica excluída.&quot;);
+            } else {
+                System.out.println(&quot;Tipo inválido.&quot;);
+            }
+        }
+    </code></pre></details></li></ul><ul id="c9f57c43-7d7d-4b6b-9b07-98b2f9c2d6e0" class="toggle"><li><details><summary>buscarPeloId()</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="603cfed9-86a8-44f7-ad6c-1a8219b077f3" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">private static void buscarPeloId() {
+            System.out.println(&quot;Buscar Pessoa pelo ID: [F] - Física | [J] - Jurídica&quot;);
+            String tipo = scanner.nextLine().toUpperCase();
+            System.out.print(&quot;Digite o id da pessoa: &quot;);
+            int id = scanner.nextInt();
+            scanner.nextLine();
+    
+            if (tipo.equals(&quot;F&quot;)) {
+                PessoaFisica pf = repoFisica.obter(id);
+                if (pf != null) {
+                    pf.exibir();
+                } else {
+                    System.out.println(&quot;Pessoa Física não encontrada.&quot;);
+                }
+            } else if (tipo.equals(&quot;J&quot;)) {
+                PessoaJuridica pj = repoJuridica.obter(id);
+                if (pj != null) {
+                    pj.exibir();
+                } else {
+                    System.out.println(&quot;Pessoa Jurídica não encontrada.&quot;);
+                }
+            } else {
+                System.out.println(&quot;Tipo inválido.&quot;);
+            }
+        }
+    </code></pre></details></li></ul><ul id="ad020b89-d1e9-431e-a274-ccd5b4c7e510" class="toggle"><li><details><summary>exibirTodos()</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5bf88aff-72dd-4451-9a54-33e2e631c4ad" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">private static void exibirTodos() {
+            System.out.println(&quot;Exibir Todos: [F] - Física | [J] - Jurídica&quot;);
+            String tipo = scanner.nextLine().toUpperCase();
+    
+            if (tipo.equals(&quot;F&quot;)) {
+                System.out.println(&quot;Pessoas Físicas:&quot;);
+                for (PessoaFisica pf : repoFisica.obterTodos()) {
+                    pf.exibir();
+                }
+            } else if (tipo.equals(&quot;J&quot;)) {
+                System.out.println(&quot;Pessoas Jurídicas:&quot;);
+                for (PessoaJuridica pj : repoJuridica.obterTodos()) {
+                    pj.exibir();
+                }
+            } else {
+                System.out.println(&quot;Tipo inválido.&quot;);
+            }
+        }
+    </code></pre></details></li></ul><ul id="619177a1-a8ba-4e60-9a65-4ab6dca6ffbc" class="toggle"><li><details><summary>persistirDados()</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="85fdd3be-6aaa-43ea-8cd7-d25b9f2774c0" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">private static void persistirDados() {
+            System.out.print(&quot;Digite o prefixo para os arquivos de persistência: &quot;);
+            String prefixo = scanner.nextLine();
+            String arquivoFisica = prefixo + &quot;.fisica.bin&quot;;
+            String arquivoJuridica = prefixo + &quot;.juridica.bin&quot;;
+    
+            try {
+                repoFisica.persistir(arquivoFisica);
+                repoJuridica.persistir(arquivoJuridica);
+                System.out.println(&quot;Dados persistidos com sucesso.&quot;);
+            } catch (IOException e) {
+                System.err.println(&quot;Erro ao persistir os dados: &quot; + e.getMessage());
+            }
+        }
+    </code></pre></details></li></ul><ul id="3e6dc651-5d6c-4e6f-bccc-9fe5472b2809" class="toggle"><li><details><summary>recuperarDados()</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f92bb890-bd04-43f7-bf7c-afad1adf7c86" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">private static void recuperarDados() {
+            System.out.print(&quot;Digite o prefixo para os arquivos de recuperação: &quot;);
+            String prefixo = scanner.nextLine();
+            String arquivoFisica = prefixo + &quot;.fisica.bin&quot;;
+            String arquivoJuridica = prefixo + &quot;.juridica.bin&quot;;
+    
+            try {
+                repoFisica.recuperar(arquivoFisica);
+                repoJuridica.recuperar(arquivoJuridica);
+                System.out.println(&quot;Dados recuperados com sucesso.&quot;);
+            } catch (IOException | ClassNotFoundException e) {
+                System.err.println(&quot;Erro ao recuperar os dados: &quot; + e.getMessage());
+            }
+        }
+    </code></pre></details></li></ul><ul id="1f4c5450-3abd-4f40-8423-63c2b7fb9775" class="toggle"><li><details><summary>incluirPessoa()</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="28244b88-c86f-4eef-94cd-d425a00b1eb4" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">private static void incluirPessoa() {
+            System.out.println(&quot;Incluir Pessoa: [F] - Física | [J] - Jurídica&quot;);
+            String tipo = scanner.nextLine().toUpperCase();
+    
+            while (!tipo.equals(&quot;F&quot;) &amp;&amp; !tipo.equals(&quot;J&quot;)) {
+                System.out.println(&quot;Tipo inválido. Por favor, digite F para Pessoa Física ou J para Pessoa Jurídica.&quot;);
+                System.out.println(&quot;Incluir Pessoa: [F] - Física | [J] - Jurídica&quot;);
+                tipo = scanner.nextLine().toUpperCase();
+    
+            }
+        
+            System.out.print(&quot;Digite o id da pessoa: &quot;);
+            int id = scanner.nextInt();
+            scanner.nextLine(); 
+        
+            System.out.print(&quot;Digite o nome da pessoa: &quot;);
+            String nome = scanner.nextLine();
+        
+            if (tipo.equals(&quot;F&quot;)) {
+                System.out.print(&quot;Digite o CPF da pessoa: &quot;);
+                String cpf = scanner.nextLine();
+        
+                System.out.print(&quot;Digite a idade da pessoa: &quot;);
+                int idade = scanner.nextInt();
+                scanner.nextLine(); 
+        
+                PessoaFisica pf = new PessoaFisica(id, nome, cpf, idade);
+                repoFisica.inserir(pf);
+                System.out.println(&quot;Pessoa Física incluída com sucesso.&quot;);
+            } else { 
+                System.out.print(&quot;Digite o CNPJ da pessoa: &quot;);
+                String cnpj = scanner.nextLine();
+        
+                PessoaJuridica pj = new PessoaJuridica(id, nome, cnpj);
+                repoJuridica.inserir(pj);
+                System.out.println(&quot;Pessoa Jurídica incluída com sucesso.&quot;);
+            }
+        }   
+    </code></pre></details></li></ul><ul id="ccd02e9c-ff06-43c6-9149-0e4dd0d32c64" class="toggle"><li><details><summary>alterarPessoa()</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="fab3a9eb-3951-479d-b47d-8c569e343e28" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">private static void alterarPessoa() {
+            System.out.println(&quot;Alterar Pessoa: [F] - Física | [J] - Jurídica&quot;);
+            String tipo = scanner.nextLine().toUpperCase();
+    
+            System.out.print(&quot;Digite o id da pessoa para alteração: &quot;);
+            int id = scanner.nextInt();
+            scanner.nextLine();
+    
+            if (tipo.equals(&quot;F&quot;)) {
+                PessoaFisica pf = repoFisica.obter(id);
+                if (pf != null) {
+                    System.out.print(&quot;Digite o novo nome da pessoa Física (ou deixe em branco para não alterar): &quot;);
+                    String nome = scanner.nextLine();
+                    if (!nome.isEmpty())
+                        pf.setNome(nome);
+    
+                    System.out.print(&quot;Digite o novo CPF da pessoa Física (ou deixe em branco para não alterar): &quot;);
+                    String cpf = scanner.nextLine();
+                    if (!cpf.isEmpty())
+                        pf.setCpf(cpf);
+    
+                    System.out.print(&quot;Digite a nova idade da pessoa Física (ou 0 para não alterar): &quot;);
+                    int idade = scanner.nextInt();
+                    if (idade != 0)
+                        pf.setIdade(idade);
+    
+                    repoFisica.alterar(pf);
+                    System.out.println(&quot;Pessoa Física alterada com sucesso.&quot;);
+                } else {
+                    System.out.println(&quot;Pessoa Física não encontrada.&quot;);
+                }
+            } else if (tipo.equals(&quot;J&quot;)) {
+                PessoaJuridica pj = repoJuridica.obter(id);
+                if (pj != null) {
+                    System.out.print(&quot;Digite o novo nome da pessoa Jurídica (ou deixe em branco para não alterar): &quot;);
+                    String nome = scanner.nextLine();
+                    if (!nome.isEmpty())
+                        pj.setNome(nome);
+    
+                    System.out.print(&quot;Digite o novo CNPJ da pessoa Jurídica (ou deixe em branco para não alterar): &quot;);
+                    String cnpj = scanner.nextLine();
+                    if (!cnpj.isEmpty())
+                        pj.setCnpj(cnpj);
+    
+                    repoJuridica.alterar(pj);
+                    System.out.println(&quot;Pessoa Jurídica alterada com sucesso.&quot;);
+                } else {
+                    System.out.println(&quot;Pessoa Jurídica não encontrada.&quot;);
+                }
+            } else {
+                System.out.println(&quot;Tipo inválido.&quot;);
+            }
+        }
+    </code></pre></details></li></ul></details></li></ul><ul id="e730a370-2f53-4a6a-8f95-6e1d2a86cb45" class="toggle"><li><details><summary>Pessoa.java</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="85b52317-2215-4238-9990-44645a9f1612" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package model;
+    
+    import java.io.Serializable;
+    
+    public class Pessoa implements Serializable {
+        private int id;
+        private String nome;
+    
+        public Pessoa() {
+        }
+    
+        public Pessoa(int id, String nome) {
+            this.id = id;
+            this.nome = nome;
+        }
+    
+        public void exibir() {
+            System.out.println(&quot;ID: &quot; + id + &quot;, Nome: &quot; + nome);
+        }
+    
+        public int getId() {
+            return id;
+        }
+    
+        public void setId(int id) {
+            this.id = id;
+        }
+    
+        public String getNome() {
+            return nome;
+        }
+    
+        public void setNome(String nome) {
+            this.nome = nome;
+        }
+    }
+    </code></pre></details></li></ul><ul id="86224236-6118-4907-88d4-ae1c2352f84f" class="toggle"><li><details><summary>PessoaFisica.java</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a2b32b22-dbe7-4832-ac8a-08e4e59f621a" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package model;
+    
+    public class PessoaFisica extends Pessoa {
+        private String cpf;
+        private int idade;
+    
+        public PessoaFisica() {
+        }
+    
+        public PessoaFisica(int id, String nome, String cpf, int idade) {
+            super(id, nome);
+            this.cpf = cpf;
+            this.idade = idade;
+        }
+    
+        @Override
+        public void exibir() {
+            super.exibir();
+            System.out.println(&quot;CPF: &quot; + cpf + &quot;, Idade: &quot; + idade);
+        }
+    
+        public String getCpf() {
+            return cpf;
+        }
+    
+        public void setCpf(String cpf) {
+            this.cpf = cpf;
+        }
+    
+        public int getIdade() {
+            return idade;
+        }
+    
+        public void setIdade(int idade) {
+            this.idade = idade;
+        }
+    }
+    </code></pre></details></li></ul><ul id="dfe2bfea-089e-442d-bd8e-196a05a63d91" class="toggle"><li><details><summary>PessoaJuridica.Java</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8942168e-4ff2-466e-8bb1-cec775aadbb9" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package model;
+    
+    public class PessoaJuridica extends Pessoa {
+        private String cnpj;
+    
+        public PessoaJuridica() {
+        }
+    
+        public PessoaJuridica(int id, String nome, String cnpj) {
+            super(id, nome);
+            this.cnpj = cnpj;
+        }
+    
+        @Override
+        public void exibir() {
+            super.exibir();
+            System.out.println(&quot;CNPJ: &quot; + cnpj);
+        }
+    
+        public String getCnpj() {
+            return cnpj;
+        }
+    
+        public void setCnpj(String cnpj) {
+            this.cnpj = cnpj;
+        }
+    }
+    </code></pre></details></li></ul><ul id="8e3d1237-05b7-4627-98c5-a02afc99f4a2" class="toggle"><li><details><summary>PessoaFisicaRepo.java</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a123e5d8-5160-4db3-820f-b833f8ac690d" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package model;
+    
+    import java.util.ArrayList;
+    import java.io.*;
+    import java.util.List;
+    
+    public class PessoaFisicaRepo {
+        private ArrayList&lt;PessoaFisica&gt; pessoasFisicas = new ArrayList&lt;&gt;();
+    
+        public void inserir(PessoaFisica pessoaFisica) {
+            pessoasFisicas.add(pessoaFisica);
+        }
+    
+        public void alterar(PessoaFisica pessoaFisica) {
+            for (int i = 0; i &lt; pessoasFisicas.size(); i++) {
+                if (pessoasFisicas.get(i).getId() == pessoaFisica.getId()) {
+                    pessoasFisicas.set(i, pessoaFisica);
+                    return;
+                }
+            }
+        }
+    
+        public void excluir(int id) {
+            pessoasFisicas.removeIf(p -&gt; p.getId() == id);
+        }
+    
+        public PessoaFisica obter(int id) {
+            return pessoasFisicas.stream()
+                    .filter(p -&gt; p.getId() == id)
+                    .findFirst()
+                    .orElse(null);
+        }
+    
+        public List&lt;PessoaFisica&gt; obterTodos() {
+            return new ArrayList&lt;&gt;(pessoasFisicas);
+        }
+    
+        public void persistir(String nomeArquivo) throws IOException {
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
+                out.writeObject(pessoasFisicas);
+            }
+        }
+    
+        public void recuperar(String nomeArquivo) throws IOException, ClassNotFoundException {
+            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
+                pessoasFisicas = (ArrayList&lt;PessoaFisica&gt;) in.readObject();
+            }
+        }
+    }
+    </code></pre></details></li></ul><ul id="adda47f8-cc48-48ac-a901-68a66469594f" class="toggle"><li><details><summary>PessoaJuridicaRepo.java</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="321e3b03-0f99-4f0b-b286-40854846ad11" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">package model;
+    
+    import java.util.ArrayList;
+    import java.io.*;
+    import java.util.List;
+    
+    public class PessoaFisicaRepo {
+        private ArrayList&lt;PessoaFisica&gt; pessoasFisicas = new ArrayList&lt;&gt;();
+    
+        public void inserir(PessoaFisica pessoaFisica) {
+            pessoasFisicas.add(pessoaFisica);
+        }
+    
+        public void alterar(PessoaFisica pessoaFisica) {
+            for (int i = 0; i &lt; pessoasFisicas.size(); i++) {
+                if (pessoasFisicas.get(i).getId() == pessoaFisica.getId()) {
+                    pessoasFisicas.set(i, pessoaFisica);
+                    return;
+                }
+            }
+        }
+    
+        public void excluir(int id) {
+            pessoasFisicas.removeIf(p -&gt; p.getId() == id);
+        }
+    
+        public PessoaFisica obter(int id) {
+            return pessoasFisicas.stream()
+                    .filter(p -&gt; p.getId() == id)
+                    .findFirst()
+                    .orElse(null);
+        }
+    
+        public List&lt;PessoaFisica&gt; obterTodos() {
+            return new ArrayList&lt;&gt;(pessoasFisicas);
+        }
+    
+        public void persistir(String nomeArquivo) throws IOException {
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
+                out.writeObject(pessoasFisicas);
+            }
+        }
+    
+        public void recuperar(String nomeArquivo) throws IOException, ClassNotFoundException {
+            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
+                pessoasFisicas = (ArrayList&lt;PessoaFisica&gt;) in.readObject();
+            }
+        }
+    }
+    </code></pre></details></li></ul><h2 id="439c18d2-2fd4-4006-b4d8-a083885e5d8a" class="">Execuções</h2><ul id="ab509185-395e-410c-9f65-51eca0e2501b" class="toggle"><li><details><summary>Todas as funcionalidades</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="14285ea6-8a3c-47e7-a9ea-64484f2852a1" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">@JoaoFernandesz ➜ /workspaces/Missao-Pratica-Nivel1-Mundo3---Desenvolvimento-FullStack/Segundo-Procedimento/CadastroPOO (main) $  /usr/bin/env /usr/local/sdkman/candidates/java/21.0.2-ms/bin/java --enable-preview -XX:+ShowCodeDetailsInExceptionMessages -cp /workspaces/Missao-Pratica-Nivel1-Mundo3---Desenvolvimento-FullStack/Segundo-Procedimento/CadastroPOO/bin App 
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 1
+    Incluir Pessoa: [F] - Física | [J] - Jurídica
+    f
+    Digite o id da pessoa: 01
+    Digite o nome da pessoa: Joao Fernandes
+    Digite o CPF da pessoa: 99999999999
+    Digite a idade da pessoa: 20
+    Pessoa Física incluída com sucesso.
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 5
+    Exibir Todos: [F] - Física | [J] - Jurídica
+    f
+    Pessoas Físicas:
+    ID: 1, Nome: Joao Fernandes
+    CPF: 99999999999, Idade: 20
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 4
+    Buscar Pessoa pelo ID: [F] - Física | [J] - Jurídica
+    f
+    Digite o id da pessoa: 01
+    ID: 1, Nome: Joao Fernandes
+    CPF: 99999999999, Idade: 20
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 3
+    Excluir Pessoa: [F] - Física | [J] - Jurídica
+    f
+    Digite o id da pessoa: 01
+    Pessoa Física excluída.
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 5
+    Exibir Todos: [F] - Física | [J] - Jurídica
+    f
+    Pessoas Físicas:
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 1
+    Incluir Pessoa: [F] - Física | [J] - Jurídica
+    j
+    Digite o id da pessoa: 02
+    Digite o nome da pessoa: Joao Pessoa Juridica
+    Digite o CNPJ da pessoa: 00000000000000
+    Pessoa Jurídica incluída com sucesso.
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 6
+    Digite o prefixo para os arquivos de persistência: joao
+    Dados persistidos com sucesso.
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 5
+    Exibir Todos: [F] - Física | [J] - Jurídica
+    j
+    Pessoas Jurídicas:
+    ID: 2, Nome: Joao Pessoa Juridica
+    CNPJ: 00000000000000
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 3
+    Excluir Pessoa: [F] - Física | [J] - Jurídica
+    j
+    Digite o id da pessoa: 02
+    Pessoa Jurídica excluída.
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 5
+    Exibir Todos: [F] - Física | [J] - Jurídica
+    j
+    Pessoas Jurídicas:
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 7
+    Digite o prefixo para os arquivos de recuperação: joao
+    Dados recuperados com sucesso.
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 5
+    Exibir Todos: [F] - Física | [J] - Jurídica
+    j
+    Pessoas Jurídicas:
+    ID: 2, Nome: Joao Pessoa Juridica
+    CNPJ: 00000000000000
+    ==================================
+    1 - Incluir Pessoa
+    2 - Alterar Pessoa
+    3 - Excluir Pessoa
+    4 - Buscar pelo Id
+    5 - Exibir Todos
+    6 - Persistir Dados
+    7 - Recuperar Dados
+    0 - Finalizar Programa
+    ==================================
+    Escolha uma opção: 0
+    Finalizando programa...
+    @JoaoFernandesz ➜ /workspaces/Missao-Pratica-Nivel1-Mundo3---Desenvolvimento-FullStack/Segundo-Procedimento/CadastroPOO (main) $ </code></pre></details></li></ul><h2 id="08a29dd0-66eb-433a-b595-b077464b2506" class="">Análise e Conclusões</h2><h3 id="514c6ff9-87be-4923-b117-cadb3e687cd0" class="">O que são elementos estáticos e qual o motivo para o método main adotar esse modificador?</h3><p id="67001ee4-79b0-455f-a020-d52c9ccf24ae" class="">Os elementos estáticos pertencem a classe e não a uma instancia especifica da classe. E por isso ele pode ser acessado sem a necessidade de criar uma instancia, por isso o metodo mais é <code><strong>static</strong></code><strong>.</strong></p><h3 id="b9e7de54-8dbd-4bc2-9806-35244fd9bcd8" class="">Para que serve a classe Scanner?</h3><p id="831c88ac-adb7-4c0a-abfb-0face0a396d0" class="">A classe <code><strong>Scanner</strong></code> serve pra ler dados. Independente da fonte (entrada do usuários, arquivos, strings).</p><h3 id="8451624a-c89f-4585-9eb5-bb2bfd482a23" class="">Como o uso de classes de repositório impactou na organização do código?</h3><ul id="208ce195-d121-44fc-986b-8ad325ffcb06" class="bulleted-list"><li style="list-style-type:disc">Isola a lógica de acesso aos dados da lógica de construção deles. </li></ul><ul id="f208a851-0ced-4e05-b24a-0e424ce91a40" class="bulleted-list"><li style="list-style-type:disc">Permite facilitar testes, testando de forma independente</li></ul><p id="5593e046-f54b-4e40-90c2-68c2e5dc92ff" class="">
+    </p></details></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
