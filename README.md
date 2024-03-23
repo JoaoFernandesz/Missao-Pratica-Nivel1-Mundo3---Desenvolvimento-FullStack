@@ -33,4 +33,4 @@ Este projeto, intitulado **Cadastro de Clientes em Java**, foi desenvolvido como
 
 - **Documento de Entrega do Projeto:** [Missao-Pratica-Nivel1-Mundo3---Desenvolvimento-FullStack](https://missao-pratica-nivel1-mundo3-desenvolvimento-full-stack.vercel.app/)
 - **PDF:** [Download PDF](https://drive.usercontent.google.com/uc?id=1H9DR4oTRe2Xl24ojWs53018LM0LRi3Xf&export=download)
-- **Material de Apoio:** [Missão Prática | Nível 1 | Mundo 3]([url](https://sway.cloud.microsoft/s/9HQUpWu7S6bzXsqt/embed)https://sway.cloud.microsoft/s/9HQUpWu7S6bzXsqt/embed)
+- **Material de Apoio:** [Missão Prática | Nível 1 | Mundo 3](https://sway.cloud.microsoft/s/9HQUpWu7S6bzXsqt/embed)
